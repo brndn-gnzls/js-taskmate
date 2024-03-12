@@ -1,0 +1,101 @@
+.App {
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px 10px;
+}
+
+header {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  margin-bottom: 70px;
+  background-color: #FFF;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+}
+
+.showTask {
+  background-color: #fff;
+  margin: 20px auto;
+  box-shadow: var(--box-shadow);
+}
+
+.showTask p.head {
+  padding: 10px 0 20px 0;
+  border-bottom: 1px solid #dfdfdf;
+  display: flex;
+  align-items: center;
+}
+
+.showTask p.head span:first-child {
+  flex-grow: 1;
+}
+
+.showTask .title {
+  font-size: 18px;
+  font-weight: 600;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.showTask .count {
+  background-color: #dfdfdf;
+  color: #525252;
+  padding: 5px 10px;
+  border-radius: 50%;
+  margin-left: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.showTask .clearAll {
+  background-color: #0f6af3;
+  color: #FFF;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.showTask .clearAll:hover {
+  background-color: #1061db;
+}
+
+.showTask ul {
+  margin: 30px 5px 20px 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.showTask li {
+  padding: 15px 10px;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  gap: 5px;
+  width: 350px;
+  box-shadow: var(--box-shadow);
+  border-radius: 5px;
+  border-left: 5px solid #1365dfaf;
+}
+
+.showTask i.bi-pencil-square {
+  font-size: 18px;
+  color: #1363df;
+  cursor: pointer;
+}
+
+.showTask i.bi-tash {
+  font-size: 18px;
+  color: #D82148;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+  .showTask li {
+    width: 100%;
+  }
+}

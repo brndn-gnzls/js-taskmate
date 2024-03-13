@@ -2,8 +2,18 @@ import React from 'react'
 
 /*
     tasklist & showTaskList passed from App.js.
+    task & setTask passed from App.js.
 */
-const ShowTask = ({tasklist, setTasklist}) => {
+const ShowTask = ({tasklist, setTasklist, task, setTask}) => {
+
+    const handleDelete = (id) => {
+        const updatedTaskList = tasklist.filter(todo => todo.id !== id)
+        setTasklist(updatedTaskList)
+    }
+
+    const handleEdit = () => {
+
+    }
 
 
     return (
@@ -18,14 +28,15 @@ const ShowTask = ({tasklist, setTasklist}) => {
             <ul>
                 {
                     // map from tasklist (App.js)
-                    tasklist.map((task) => (
-                        <li key={task.id}>
+                    tasklist.map((todo) => (
+                        <li key={todo.id}>
                             <p>
-                                <span className='name'>{task.name}</span>
-                                <span className='time'>{task.time}</span>
+                                <span className='name'>{todo.name}</span>
+                                <span className='time'>{todo.time}</span>
                             </p>
-                            <i className='bi bi-pencil-square'></i>
-                            <i className='bi bi-trash'></i>
+                            {/* passing task.id through arrow functions to easily grab element */}
+                            <i onClick={() => handleEdit(todo.id)}className='bi bi-pencil-square'></i>
+                            <i onClick={() => handleDelete(todo.id)} className='bi bi-trash'></i>
                         </li>
                     ))
                 }

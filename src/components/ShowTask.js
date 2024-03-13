@@ -11,8 +11,9 @@ const ShowTask = ({tasklist, setTasklist, task, setTask}) => {
         setTasklist(updatedTaskList)
     }
 
-    const handleEdit = () => {
-
+    const handleEdit = (id) => {
+        const selectedTask = tasklist.find(todo => todo.id === id)
+        setTask(selectedTask)
     }
 
 

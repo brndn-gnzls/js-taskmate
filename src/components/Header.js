@@ -1,4 +1,4 @@
-import Logo from "../assets/logo.png"
+import Logo from "../assets/Apex-Header.svg"
 import React, { useEffect, useState } from 'react'
 
 const Header = () => {
@@ -14,7 +14,6 @@ const Header = () => {
 		<header>
 			<div className='logo'>
 				<img src={Logo} alt="task manager logo" />
-				<span>Taskmate</span>
 			</div>
 
 			<div className="themeSelector">

@@ -1,44 +1,43 @@
 import React from 'react'
 
-const ShowTask = () => {
+/*
+    tasklist & showTaskList passed from App.js.
+    task & setTask passed from App.js.
+*/
+const ShowTask = ({tasklist, setTasklist, task, setTask}) => {
 
-    const tasks = [
-        {
-            id: 1001,
-            name: "Task A",
-            time: "2:09:01 AM 9/14/2030"
-        },
-        {
-            id: 1002,
-            name: "Task B",
-            time: "2:09:01 AM 9/14/2030"
-        },
-        {
-            id: 1003,
-            name: "Task C",
-            time: "2:09:01 AM 9/14/2030"
-        }
-    ]
+    const handleDelete = (id) => {
+        const updatedTaskList = tasklist.filter(todo => todo.id !== id)
+        setTasklist(updatedTaskList)
+    }
+
+    const handleEdit = (id) => {
+        const selectedTask = tasklist.find(todo => todo.id === id)
+        setTask(selectedTask)
+    }
+
 
     return (
         <section className='showTask'>
             <div className='head'>
                 <div>
                     <span className='title'>Todo</span>
-                    <span className='count'>0</span>
+                    <span className='count'>{tasklist.length}</span>
                 </div>
-                <button className='clearAll'>Clear All</button>
+                <button className='clearAll' onClick={() => setTasklist([])}>Clear All</button>
             </div>
             <ul>
                 {
-                    tasks.map((task) => (
-                        <li>
+                    // map from tasklist (App.js)
+                    tasklist.map((todo) => (
+                        <li key={todo.id}>
                             <p>
-                                <span className='name'>{task.name}</span>
-                                <span className='time'>{task.time}</span>
+                                <span className='name'>{todo.name}</span>
+                                <span className='time'>{todo.time}</span>
                             </p>
-                            <i className='bi bi-pencil-square'></i>
-                            <i className='bi bi-trash'></i>
+                            {/* passing task.id through arrow functions to easily grab element */}
+                            <i onClick={() => handleEdit(todo.id)}className='bi bi-pencil-square'></i>
+                            <i onClick={() => handleDelete(todo.id)} className='bi bi-trash'></i>
                         </li>
                     ))
                 }
